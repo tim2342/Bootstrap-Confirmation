@@ -32,6 +32,12 @@
 	var Confirmation = function (element, options) {
 		var that = this;
 
+		// if data-href doesn't exist but href does then
+		// copy href to data-href
+		if (!$(element).attr('data-href') && $(element).attr('href')) {
+			$(element).attr('data-href', $(element).attr('href'));
+		}
+		
 		// remove href attribute of button
 		$(element).removeAttr('href')
 
